@@ -1,0 +1,49 @@
+<?php
+/**
+ * @category  CMSScheduler
+ * @package   SixtySeven_CMSScheduler
+ * @author    Bharat
+ */
+// @codingStandardsIgnoreFile
+
+/**
+ * @block \SixtySeven\CMSScheduler\Block\Adminhtml\Cms\Version\Detail
+ */
+$type = $block->getScheduleType();
+
+
+
+$typeObjectId = $block->getTypeObjectId();
+
+$currentDataInTypeObject = $block->getCurrentObjectData();
+
+$selectedScheduleData = $block->getScheduleData();
+
+$keysToShow = $block->getItemKeysToShow($type);
+
+$scheduleTitle = '#'.$selectedScheduleData->getId()." ".$selectedScheduleData->getCreatedAt();
+
+
+?>
+<div class="main-col col-m-12">
+	<h2 class="title"><?= __('You are reviewing for %1 Id #%2', $block->getValueLabel($type), $typeObjectId) ?></h2>
+
+	<div class="col-m-12">
+		<h3><?= __("Schedule Info for : %1 ", $scheduleTitle) ?></h3>
+		<table class="admin__table-primary">
+			<thead><tr><th><?= __("Key") ?></th><th><?= __("Value") ?></th></tr></thead>
+			<tbody>
+				<?php 
+					foreach ($keysToShow as  $objkey=>$revkeys):
+						?>
+						<tr>
+							<td><?= $block->getValueLabel($objkey) ?></td>
+							<td><?= $block->renderValuesByType($selectedScheduleData->getData($revkeys[0]), $revkeys[1],$revkeys[2]) ?></td>
+						</tr>
+						<?
+					endforeach; 
+				?>
+			</tbody>
+		</table>
+	</div>
+</div>

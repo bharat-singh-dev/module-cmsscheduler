@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  CMSScheduler
+ * @package   SixtySeven_CMSScheduler
+ * @author    Bharat
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="SixtySeven_CMSScheduler::scheduled_pages" title="Scheduled Pages" translate="title" module="SixtySeven_CMSScheduler" sortOrder="6" parent="Magento_Backend::content_elements" action="cmsrevision/scheduled/pages" resource="SixtySeven_CMSScheduler::scheduled_pages"/>
+        <add id="SixtySeven_CMSScheduler::scheduled_blocks" title="Scheduled Blocks" translate="title" module="SixtySeven_CMSScheduler" sortOrder="31" parent="Magento_Backend::content_elements" action="cmsrevision/scheduled/blocks" resource="SixtySeven_CMSScheduler::scheduled_blocks"/>
+    </menu>
+</config>

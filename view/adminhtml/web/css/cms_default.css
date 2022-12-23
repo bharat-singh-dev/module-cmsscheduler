@@ -1,0 +1,6 @@
+.cms-page-new div[data-index="cmspage_schedule_date"] {
+    display: none;
+}
+.cms-block-new div[data-index="cmspage_schedule_date"] {
+    display: none;
+}

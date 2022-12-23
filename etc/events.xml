@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  CMSScheduler
+ * @package   SixtySeven_CMSScheduler
+ * @author    Bharat
+ */ 
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="cms_page_save_after">
+       <observer name="pagerevision" instance="SixtySeven\CMSScheduler\Observer\Pagerevision" />
+    </event>
+    <event name="cms_block_save_after">
+       <observer name="blockrevision" instance="SixtySeven\CMSScheduler\Observer\Blockrevision" />
+    </event>
+</config>

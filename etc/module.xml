@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * @category  CMSScheduler
+ * @package   SixtySeven_CMSScheduler
+ * @author    Bharat
+ */
+-->	
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nonamespaceschemalocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="SixtySeven_CMSScheduler" setup_version="1.0.6">
+        <sequence>
+            <module name="Magento_Cms">
+            </module>
+        </sequence>
+    </module>
+</config>

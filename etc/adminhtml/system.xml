@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  CMSScheduler
+ * @package   SixtySeven_CMSScheduler
+ * @author    Bharat
+ */
+--> 
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="cms">
+            <group id="global" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>CMS Scheduler/Revision By SixtySeven</label>
+                <field id="enabled" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Instruction:</label>
+                    <comment>This extension helps you track all the history/revision of changes done in the "Title" and "Content" of CMS Block and Pages. You can also schedule changes to be reflected on a specific Date and Time!</comment>
+                </field>
+                <field id="force_sync" translate="label comment" type="button" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label></label>
+                    <frontend_model>SixtySeven\CMSScheduler\Block\Adminhtml\System\Config\Button</frontend_model>
+                    <comment>Note: Use this "button" when installing the extension for the first time. It will then sync all the pre-existing Pages and CMS Blocks so there's a history/revision for existing version.
+                    </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

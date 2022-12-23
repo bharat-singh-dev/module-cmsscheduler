@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category  CMSScheduler
+ * @package   SixtySeven_CMSScheduler
+ * @author    Bharat
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+<fieldset name="general">
+	<field name="can_version" sortOrder="11" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">block</item>
+                    <item name="default" xsi:type="number">1</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Enable Versioning</label>
+                <dataScope>can_version</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+       </fieldset>
+
+       <fieldset name="cmspage_schedule_date" sortOrder="15">
+
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Schedule Page For Date</label>
+        </settings>
+        <field name="schedule_from" formElement="date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-date" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">From</label>
+                <dataScope>schedule_from</dataScope>
+            </settings>
+        </field>
+        <field name="schedule_from_time" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">From Time</label>
+                <dataScope>schedule_from_time</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="SixtySeven\CMSScheduler\Ui\Component\Listing\Column\ScheduleTime"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="schedule_to" formElement="date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">page</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-date" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">To</label>
+                <dataScope>schedule_to</dataScope>
+            </settings>
+        </field>
+        <field name="schedule_to_time" formElement="select">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">block</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">To Time</label>
+                <dataScope>schedule_to_time</dataScope>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="SixtySeven\CMSScheduler\Ui\Component\Listing\Column\ScheduleTime"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+    </fieldset>
+     <fieldset name="revision_history">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Revision History</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">30</item>
+            </item>
+        </argument>
+        <insertListing class="SixtySeven\CMSScheduler\Ui\Component\InsertListingContainer">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="autoRender" xsi:type="boolean">true</item> 
+                    <item name="ns" xsi:type="string">cms_page_revision_listing</item>
+                    <item name="filter_url_params" xsi:type="array">
+                        <item name="page_id" xsi:type="string">*</item>
+                    </item>
+                </item>
+            </argument>
+        </insertListing>
+    </fieldset>
+    <fieldset name="schedule_history">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Schedule History</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">31</item>
+            </item>
+        </argument>
+        <insertListing class="SixtySeven\CMSScheduler\Ui\Component\InsertListingContainer">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="autoRender" xsi:type="boolean">true</item> 
+                    <item name="ns" xsi:type="string">cms_page_edit_scheduled_listing</item>
+                    <item name="filter_url_params" xsi:type="array">
+                        <item name="page_id" xsi:type="string">*</item>
+                    </item>
+                </item>
+            </argument>
+        </insertListing>
+    </fieldset>
+</form>

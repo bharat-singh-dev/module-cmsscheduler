@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @category  CMSScheduler
+ * @package   SixtySeven_CMSScheduler
+ * @author    Bharat
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Cms\Model\Block" type="SixtySeven\CMSScheduler\Preference\Model\Block" />
+    <preference for="Magento\Cms\Model\Page" type="SixtySeven\CMSScheduler\Preference\Model\Page" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="cms_block_revision_listing_source" xsi:type="string">SixtySeven\CMSScheduler\Model\ResourceModel\BlockRevision\Grid\Collection</item>
+                <item name="cms_page_revision_listing_source" xsi:type="string">SixtySeven\CMSScheduler\Model\ResourceModel\PageRevision\Grid\Collection</item>
+                 <item name="cms_block_scheduled_listing_source" xsi:type="string">SixtySeven\CMSScheduler\Model\ResourceModel\BlockSchedule\Grid\Collection</item>
+                <item name="cms_page_scheduled_listing_source" xsi:type="string">SixtySeven\CMSScheduler\Model\ResourceModel\PageSchedule\Grid\Collection</item>
+                <item name="cms_page_edit_scheduled_listing_source" xsi:type="string">SixtySeven\CMSScheduler\Model\ResourceModel\PageSchedule\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    
+    <type name="SixtySeven\CMSScheduler\Model\ResourceModel\BlockRevision\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">cmsblock_revisions</argument>
+            <argument name="resourceModel" xsi:type="string">SixtySeven\CMSScheduler\Model\ResourceModel\BlockRevision</argument>
+        </arguments>
+    </type>
+    <type name="SixtySeven\CMSScheduler\Model\ResourceModel\PageRevision\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">cmspage_revisions</argument>
+            <argument name="resourceModel" xsi:type="string">SixtySeven\CMSScheduler\Model\ResourceModel\PageRevision</argument>
+        </arguments>
+    </type>
+
+    <type name="SixtySeven\CMSScheduler\Model\ResourceModel\BlockSchedule\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">cmsblock_schedule</argument>
+            <argument name="resourceModel" xsi:type="string">SixtySeven\CMSScheduler\Model\ResourceModel\BlockSchedule</argument>
+        </arguments>
+    </type>
+    <type name="SixtySeven\CMSScheduler\Model\ResourceModel\PageSchedule\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">cmspage_schedule</argument>
+            <argument name="resourceModel" xsi:type="string">SixtySeven\CMSScheduler\Model\ResourceModel\PageSchedule</argument>
+        </arguments>
+    </type>
+</config>

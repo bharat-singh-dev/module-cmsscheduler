@@ -1,0 +1,22 @@
+{
+    "name": "SixtySeven/module-cmsscheduler",
+    "description": "SixtySeven CMSScheduler Extension ",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "email": "bharat@webstheword.com",
+            "name": "bharat"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "SixtySeven\\CMSScheduler\\": ""
+        }
+    }
+}

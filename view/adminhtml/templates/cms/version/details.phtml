@@ -1,0 +1,60 @@
+<?php
+/**
+ * @category  CMSScheduler
+ * @package   SixtySeven_CMSScheduler
+ * @author    Bharat 
+ */ 
+
+// @codingStandardsIgnoreFile
+/**
+ * @block \SixtySeven\CMSScheduler\Block\Adminhtml\Cms\Version\Detail
+ */
+$type = $block->getVersionType();
+$typeObjectId = $block->getTypeObjectId();
+$currentDataInTypeObject = $block->getCurrentObjectData();
+$selectedVersionData = $block->getVersionData();
+$keysToShow = $block->getItemKeysToShow($type);
+$versionTitle = '#'.$selectedVersionData->getId()." ".$selectedVersionData->getCreatedAt();
+?>
+<div class="main-col col-m-12">
+	<h2 class="title"><?= __('You are reviewing for %1 Id #%2', $block->getValueLabel($type), $typeObjectId) ?></h2>
+	<p class="highlighted"><span><strong><?= __('Status Comment :')  ?> </strong><?= $selectedVersionData->getStatusComment() ?></span></p>
+	<p class="highlighted"><span><strong><?= __('Revision Id :')  ?> </strong> <?= $selectedVersionData->getRevisionId()  ?> </span></p>
+	<p class="highlighted"><span><strong><?= __('Restored From Id :')  ?> </strong> <?= $selectedVersionData->getRestoredFromId()  ?> </span></p>
+	<div class="col-m-6 col-m-push-6">
+		<h3><?= __("Current Data") ?></h3>
+		<table class="admin__table-primary">
+			<thead><tr><th><?= __("Key") ?></th><th><?= __("Value") ?></th></tr></thead>
+			<tbody>
+				<?php 
+					foreach ($keysToShow as $objkey=>$revkeys):
+						?>
+						<tr>
+							<td><?= $block->getValueLabel($objkey) ?></td>
+							<td><?= $block->renderValuesByType($currentDataInTypeObject->getData($objkey), $revkeys[1],$revkeys[2]); ?></td>
+						</tr>
+						<?
+					endforeach; 
+				?>
+			</tbody>
+		</table>
+	</div>
+	<div class="col-m-6 col-m-pull-6">
+		<h3><?= __("Version Info for : %1 ", $versionTitle) ?></h3>
+		<table class="admin__table-primary">
+			<thead><tr><th><?= __("Key") ?></th><th><?= __("Value") ?></th></tr></thead>
+			<tbody>
+				<?php 
+					foreach ($keysToShow as  $objkey=>$revkeys):
+						?>
+						<tr>
+							<td><?= $block->getValueLabel($objkey) ?></td>
+							<td><?= $block->renderValuesByType($selectedVersionData->getData($revkeys[0]), $revkeys[1],$revkeys[2]) ?></td>
+						</tr>
+						<?
+					endforeach; 
+				?>
+			</tbody>
+		</table>
+	</div>
+</div>
